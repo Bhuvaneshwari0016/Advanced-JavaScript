@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Recursion Tasks</title>
+</head>
+<body>
+    <script>
+        // Task-1
+        function factorial(n) {
+            if (n === 0 || n === 1) return 1;
+            return n * factorial(n - 1);
+        }
+        console.log("Factorial :", factorial(5)); 
+
+        // Task 2:
+        function fibonacci(n) {
+            if (n === 0) return 0;
+            if (n === 1) return 1;
+            return fibonacci(n - 1) + fibonacci(n - 2);
+        }
+        console.log("nth Fibonacci number:", fibonacci(5)); 
+
+        // Task 3: 
+        function climbStairs(n) {
+            if (n === 0) return 1;
+            if (n < 0) return 0;
+            return climbStairs(n - 1) + climbStairs(n - 2) + climbStairs(n - 3);
+        }
+        console.log("Ways to climb 4 steps:", climbStairs(4)); 
+
+        // Task 4:
+        function flattenArray(arr) {
+            let result = [];
+            for (let element of arr) {
+                if (Array.isArray(element)) {
+                    result = result.concat(flattenArray(element));
+                } else {
+                    result.push(element);
+                }
+            }
+            return result;
+        }
+        console.log("Flattened array:", flattenArray([1, [2, [3, 4], 5], 6])); 
+
+        // Task 5: 
+        function towerOfHanoi(n, fromRod, toRod, auxRod) {
+            if (n === 1) {
+                console.log(`Move disk 1 from ${fromRod} to ${toRod}`);
+                return;
+            }
+            towerOfHanoi(n - 1, fromRod, auxRod, toRod);
+            console.log(`Move disk ${n} from ${fromRod} to ${toRod}`);
+            towerOfHanoi(n - 1, auxRod, toRod, fromRod);
+        }
+        towerOfHanoi(3, 'A', 'C', 'B');
+       
+    </script>
+</body>
+</html>

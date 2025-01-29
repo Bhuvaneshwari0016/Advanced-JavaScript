@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+    <h1>JSON and Spread Syntax Tasks</h1>
+    <script>
+        // Task 1:
+        function sumAll(...args) {
+            return args.reduce((sum, num) => sum + num, 0);
+        }
+        console.log("Sum of numbers:", sumAll(1, 2, 3, 4, 5));
+    </script>
+
+    <script>
+        // Task 2: 
+        function sumArray(numbers) {
+            return sumAll(...numbers);
+        }
+        console.log(" Sum of array:", sumArray([1, 2, 3, 4, 5]));
+    </script>
+
+    <script>
+        // Task 3:
+        function deepClone(obj) {
+            return JSON.parse(JSON.stringify(obj));
+        }
+        const originalObject = { a: 1, b: { c: 2, d: 3 } };
+        const clonedObject = deepClone(originalObject);
+        console.log(" Original Object:", originalObject);
+        console.log(" Cloned Object:", clonedObject);
+    </script>
+
+    <script>
+        // Task 4:
+        function mergeObjects(obj1, obj2) {
+            return { ...obj1, ...obj2 };
+        }
+        const object1 = { a: 1, b: 2 };
+        const object2 = { b: 3, c: 4 };
+        const mergedObject = mergeObjects(object1, object2);
+        console.log(" Merged Object:", mergedObject);
+    </script>
+
+    <script>
+        // Task 5:
+        const jsObject = { name: "John", age: 30 };
+        const jsonString = JSON.stringify(jsObject);
+        const parsedObject = JSON.parse(jsonString);
+        console.log(" JSON String:", jsonString);
+        console.log(" Parsed Object:", parsedObject);
+    </script>
+</body>
+</html>
