@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> Closure</title>
+</head>
+<body>
+    <h1>Closure </h1>
+
+    //Task 1
+    <script>
+        function outerFunction() {
+            const capturedVar = 'I am a captured variable!';
+            return function innerFunction() {
+                console.log(capturedVar);
+            };
+        }
+        const myFunction = outerFunction();
+        myFunction(); 
+    </script>
+
+    // Task 2
+    <script>
+        function counter() {
+            let count = 0;
+            return function increment() {
+                count++;
+                console.log('Counter:', count);
+            };
+        }
+        const incrementCounter = counter();
+        incrementCounter(); 
+        incrementCounter(); 
+    </script>
+
+    // Task 3
+    <script>
+        function createCounter() {
+            let count = 0;
+            return function increment() {
+                count++;
+                return count;
+            };
+        }
+        
+        const counter1 = createCounter();
+        const counter2 = createCounter();
+
+        console.log('Counter 1:', counter1()); 
+        console.log('Counter 1:', counter1()); 
+        console.log('Counter 2:', counter2()); 
+    </script>
+
+    // Task 4
+    <script>
+        function createPrivateVar() {
+            let privateVar = 'Private Value';
+            return function changePrivate() {
+                privateVar = 'New Private Value';
+                console.log('Private Value:', privateVar);
+            };
+        }
+
+        const changePrivateVar = createPrivateVar();
+        changePrivateVar(); 
+    </script>
+
+ //Task 5
+    <script>
+        function functionFactory(input) {
+            return function() {
+                console.log('Factory function with input:', input);
+            };
+        }
+
+        const newFunc = functionFactory('Hello, world!');
+        newFunc(); 
+    </script>
+
+</body>
+</html>
